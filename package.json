@@ -1,0 +1,18 @@
+{
+  "name": "psap2.websrv",
+  "version": "1.0.0",
+  "description": "Web Server per schede contatto",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "^2.14.0",
+    "fastify-xml-body-parser": "^1.1.0",
+    "moment": "^2.25.3",
+    "qs": "^6.9.4",
+    "sqlite3": "^4.2.0"
+  }
+}
