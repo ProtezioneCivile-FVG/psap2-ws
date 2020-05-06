@@ -9,10 +9,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.1",
     "fastify": "^2.14.0",
     "fastify-xml-body-parser": "^1.1.0",
     "moment": "^2.25.3",
     "qs": "^6.9.4",
+    "soap": "^0.31.0",
     "sqlite3": "^4.2.0"
   }
 }
