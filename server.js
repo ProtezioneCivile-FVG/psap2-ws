@@ -4,10 +4,11 @@ const Options = require('./Options').Options;
 
 const WebOptions = Options.web || {};
 
-let Home = require('./routes/Home.js');
-let ContactCard = require('./routes/ContactCard.js');
+const CardHandler = require('./CardHandler.js');
+CardHandler.init(Options.handler);
 
-fastify.register( Home );
+let ContactCard = require('./fastifyRoutes/ContactCard.js');
+
 fastify.register( ContactCard );
 
 // Run the server!

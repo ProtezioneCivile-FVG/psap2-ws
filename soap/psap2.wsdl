@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://entiservice.ws.nue.gov.it/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+
+	name="EntiService"
+	targetNamespace="http://entiservice.ws.nue.gov.it/"
+>
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://entiservice.ws.nue.gov.it/">
+			<!-- <xsd:import schemaLocation="http://localhost:8001/Nue_Services/EntiService?xsd=1" namespace="http://entiservice.ws.nue.gov.it/"/> -->
+			<xs:element name="GestContatto">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="EnteMittente" type="xs:string" maxOccurs="1" minOccurs="0"/>
+						<xs:element name="EnteDestinatario" type="xs:string" maxOccurs="1" minOccurs="0"/>
+						<xs:element name="SedeMittente" type="xs:string" maxOccurs="1" minOccurs="0"/>
+						<xs:element name="SedeDestinataria" type="xs:string" maxOccurs="1" minOccurs="0"/>
+						<xs:element name="ProvinciaMittente" type="xs:string" maxOccurs="1" minOccurs="0"/>
+						<xs:element name="ProvinciaDestinatario" type="xs:string" maxOccurs="1" minOccurs="0"/>
+						<xs:element name="SchedaContatto" type="xs:string" maxOccurs="1" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GestContattoResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="GestContattoResult" type="xs:string" maxOccurs="1" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>			
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="IEntiService_GestContatto_InputMessage">
+		<wsdl:part name="parameters" element="GestContatto"/>
+	</wsdl:message>
+	<wsdl:message name="IEntiService_GestContatto_OutputMessage">
+		<wsdl:part name="parameters" element="GestContattoResponse"/>
+	</wsdl:message>
+
+	<wsdl:portType name="IEntiService">
+		<wsdl:operation name="GestContatto">
+			<wsdl:input wsaw:Action="IEntiService_GestContatto" message="tns:IEntiService_GestContatto_InputMessage"/>
+			<wsdl:output wsaw:Action="IEntiService_GestContattoResponse" message="tns:IEntiService_GestContatto_OutputMessage"/>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="BasicHttpBinding_IEntiService" type="tns:IEntiService">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="GestContatto">
+			<soap:operation soapAction="IEntiService_GestContatto" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="Nue_Services">
+		<wsdl:port name="EntiServicePort" binding="tns:BasicHttpBinding_IEntiService">
+			<soap:address location="http://localhost:8001/Nue_Services/EntiService"/>
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

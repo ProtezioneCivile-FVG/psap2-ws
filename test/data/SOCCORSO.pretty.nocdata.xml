@@ -1,0 +1,79 @@
+﻿<ContactCard xmlns="http://NUE.112.it/NUE112">
+	<ID>180149084</ID>
+	<CreateDate>2018-04-05T08:51:01</CreateDate>
+	<CallType>PhoneCall</CallType>
+	<Operator>146622</Operator>
+	<Reference>161483</Reference>
+	<Classification>SOCC. TECNICO URG.</Classification>
+	<ClassificationDetail>ALTRI SOCCORSI</ClassificationDetail>
+	<ClassificationAttribute> </ClassificationAttribute>
+	<HighPriority>FALSE</HighPriority>
+	<InvolvedNumber>0</InvolvedNumber>
+	<ContactCardLink></ContactCardLink>
+	<CompetenceType>VVF</CompetenceType>
+	<MainLocation>
+		<Point>
+			<Latitude>1835991</Latitude>
+			<Longitude>5093216</Longitude>
+		</Point>
+	</MainLocation>
+	<CID>84599393315732672</CID>
+	<TimestampSent/>
+	<Caller>
+		<Number>3315732672</Number>
+		<Ope_ID>599</Ope_ID>
+		<Surname>TOFFANIN</Surname>
+		<Name>FABIO</Name>
+		<Location>
+			<Manual>
+				<PointOfInterest></PointOfInterest>
+				<Toponymy>VIA</Toponymy>
+				<Address>NATISONE</Address>
+				<CivicNumber>43</CivicNumber>
+				<CivicNumberAdditional></CivicNumberAdditional>
+				<City>PALMANOVA</City>
+				<District>PALMANOVA</District>
+				<Province>UD</Province>
+				<CrossRoads>
+					<Toponymy></Toponymy>
+					<Address></Address>
+				</CrossRoads>
+				<AdditionalInfo>test test test</AdditionalInfo>
+			</Manual>
+			<Automatic>
+				<CEDInterforze>
+					<Localization>
+						<Value><svc_result ver="1.0"><eme_lia ver="1.0"><result resid="500" type="2">UNKNOWN TLC OPERATOR</result><add_info>599</add_info></eme_lia></svc_result></Value>
+					</Localization>
+				</CEDInterforze>
+				<eCall></eCall>
+				<AutomaticAlarms>
+					<Localization></Localization>
+				</AutomaticAlarms>
+			</Automatic>
+		</Location>
+	</Caller>
+	<Called>
+		<Number></Number>
+	</Called>
+	<Companies>
+		<Competence>
+			<Primary>
+				<Company>
+					<Code>VVFUDINE</Code>
+					<Enabled>TRUE</Enabled>
+					<Description>VVF UDINE</Description>
+				</Company>
+			</Primary>
+			<PublicSecurity>
+				<Company>
+					<Code>022848</Code>
+					<Enabled>TRUE</Enabled>
+					<Description>CC PALMANOVA</Description>
+				</Company>
+			</PublicSecurity>
+		</Competence>
+		<ForwardedTo></ForwardedTo>
+	</Companies>
+	<Notes></Notes>
+</ContactCard>
