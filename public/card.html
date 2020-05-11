@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Scheda Contatto</title>
+	</head>
+	<body>
+		<section id="searchbox">
+			<input type="text" id="cardid" value="" size="10">
+			<input type="button" onclick="getCard()">
+		</section>
+		<section id="resultbox">
+			<pre id="result"></pre>
+		</section>
+
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script>
+			function getCard() {
+				var el = document.getElementById('cardid');
+				var id = el.value;
+				axios.get('/api/card/' + id).then( function( response ) {
+					var pre = document.getElementById('result');
+					pre.innerText = JSON.stringify(response.data,null,'\t');
+				})
+			}
+		</script>
+	</body>
+</html>

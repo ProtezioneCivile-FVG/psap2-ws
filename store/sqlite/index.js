@@ -244,14 +244,14 @@ Store.prototype.getCardByCID = async function( cid ) {
 	return this.sql_get( sql, [cid] );
 };
 
-Store.prototype.newCard = async function( c, xml ) {
+Store.prototype.newCard = async function( c ) {
 
     let v = {
         id: c.id,
         cid: c.cid,
         created_dt: dateTimeFormat(c.created_dt),
 		json: c.json,
-		xml: xml
+		xml: c.xml
     };
 
     return this.sql_insert( v );

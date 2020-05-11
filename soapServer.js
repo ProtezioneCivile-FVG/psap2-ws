@@ -27,9 +27,9 @@ catch( err ) {
 var app = express();
 //body parser middleware are supported (optional)
 // app.use(bodyParser.raw({type: function(){return true;}, limit: '5mb'}));
+app.use(express.static('public'));
 
-
-app.get('/ccard/:id', async ( req, reply ) => {
+app.get('/api/card/:id', async ( req, reply ) => {
 
 	let id = req.params.id;
 
@@ -42,7 +42,7 @@ app.get('/ccard/:id', async ( req, reply ) => {
 	}
 });	
 
-app.get('/ccard/cid/:cid', async ( req, reply ) => {
+app.get('/api/card/cid/:cid', async ( req, reply ) => {
 
 	let cid = req.params.cid;
 

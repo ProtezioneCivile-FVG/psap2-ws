@@ -41,6 +41,16 @@ const PSAP2_Service = {
 						resolve(false);
 					}					
 
+					// Decode (if exists) Caller/Location/Automatic/CEDInterforze/Localization/Value
+					let path = 'Caller/Location/Automatic/CEDInterforze/Localization'.split('/');
+					let el = card;
+					for( let i=0; i<path.length && el; i++ ) {
+						el = el[path[i]];
+					}
+					if( el && xml_parser.validate(el['Value']) === true) {
+						el['Value'] = xml_parser.parse(el['Value']);
+					}
+
 					let record = {
 						id: card.ID,
 						cid: card.CID.toString(),

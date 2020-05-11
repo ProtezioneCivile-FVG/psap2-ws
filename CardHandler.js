@@ -1,4 +1,20 @@
 //const store = require('./store/sqlite');
+// Store Interface:
+// <Constructor>( params from options.store.params )
+// setupDB() // promise (no return code)
+// end()
+// getCardById( id )
+// getCardByCID( cid )
+// newCard( card )
+	// card is : {
+	// 	id: ID,
+	// 	cid: CID,
+	// 	created_dt: CreateDate,
+	// 	json: json,
+	// 	xml: xml
+	// }
+
+
 
 
 function CardHandler( options ){

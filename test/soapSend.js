@@ -17,6 +17,16 @@ if( !xml_file ) {
 console.log( 'Reading xml from %s', xml_file );
 let xml = require('fs').readFileSync(xml_file, 'utf8');
 
+function escapeCDATA(xml) {
+	let regex = /\]\]>/g;
+	let res = xml.replace(regex, "]]]]><![CDATA[>]]>");
+	return res;
+}
+function cdataOf(xml) {
+	return "<![CDATA[" + escapeCDATA(xml) + "]]>";
+}
+
+
 console.log( 'Parsing wsdl from %s', url );
 
 soap.createClient(url, function(err, client) {
@@ -26,8 +36,12 @@ soap.createClient(url, function(err, client) {
 	}
 	// console.log( "client.describe: %s", util.inspect(client.describe()) );
 	let parms = {
+		// SchedaContatto: cdataOf(xml)
+		// SchedaContatto: escapeCDATA(xml)
 		SchedaContatto: xml
 	};
+
+	console.log(parms.SchedaContatto);
 
 	console.log( 'Invoking soap method' );
 	client.GestContatto(parms, function(err, result) {
