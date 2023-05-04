@@ -17,33 +17,27 @@
 
 
 
-function CardHandler( options ){
-	this.opts = options || {};
-	let store_opts = this.opts.store || {};
-	let store = require('./store/' + store_opts.type || 'sqlite' );
-	this.db = new store.Store(store_opts.params);
+function DataStore( options ){
+	const opts = options || {};
+	let store = require('./store/' + opts.type || 'sqlite' );
+	this.db = new store.Store(opts.params);
 	this.initialized = false;
 }
 
-CardHandler.prototype.init = function() {
+DataStore.prototype.init = function() {
 	if( this.initialized ) return Promise.resolve(true);
 	let me = this;
 	return this.db.setupDB().then( function() {
 		me.initialized = true;
-		console.log('db setted up');
 		return true;
-	},
-	function( err ) {
-		console.err( 'db setup failed: %s', err );
-		return false;
 	});
 };
 
-CardHandler.prototype.dispose = function() {
+DataStore.prototype.dispose = function() {
 	this.db.end();
 };
 
-CardHandler.prototype.getCardById = async function( id ) {
+DataStore.prototype.getCardById = async function( id ) {
 
 	let data = await this.db.getCardById( id );
 	let card = {
@@ -57,7 +51,7 @@ CardHandler.prototype.getCardById = async function( id ) {
 
 }
 
-CardHandler.prototype.getCardsByCID = async function( id ) {
+DataStore.prototype.getCardsByCID = async function( id ) {
 
 	let data = await this.db.getCardByCID( id );
 	let card = {
@@ -70,7 +64,7 @@ CardHandler.prototype.getCardsByCID = async function( id ) {
 	return [ card ];
 }
 
-CardHandler.prototype.addCard = async function( card ) {
+DataStore.prototype.addCard = async function( card ) {
 	// card is : {
 	// 	id: ID,
 	// 	cid: CID,
@@ -87,23 +81,5 @@ CardHandler.prototype.addCard = async function( card ) {
 		return false;
 }
 
-let Singleton = {
-	_instance: null,
-	init: function(options) {
-		if( !Singleton._instance ) {
-			Singleton._instance = new CardHandler(options);
-			Singleton._instance.init();
-		}
-		return Singleton._instance;
-	},
-	get: function() {
-		return Singleton._instance;
-	},
-	dispose: function() {
-		_instance.dispose();
-		Singleton._instance = null;
-	}
-}
-
-module.exports = Singleton;
+module.exports = DataStore;
   
