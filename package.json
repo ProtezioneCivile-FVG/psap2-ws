@@ -2,7 +2,7 @@
   "name": "psap2.websrv",
   "version": "1.0.0",
   "description": "Web Server per schede contatto",
-  "main": "soapServer.js",
+  "main": "server.js",
   "scripts": {
     "dev": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,6 +15,6 @@
     "moment": "^2.25.3",
     "qs": "^6.9.4",
     "soap": "^1.0.0",
-    "sqlite3": "^4.2.0"
+    "sqlite3": "^5.1.6"
   }
 }
