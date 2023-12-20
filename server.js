@@ -72,5 +72,10 @@ async function run() {
 
 }
 
-
-run();
+try {
+	run();
+}
+catch( err ) {
+	console.error( err );
+	debugger;
+}

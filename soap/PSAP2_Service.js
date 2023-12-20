@@ -1,7 +1,10 @@
-const xml_parser = require('fast-xml-parser');
+// const xml_parser = require('fast-xml-parser');
+const { XMLParser, XMLValidator } = require('fast-xml-parser');
 const EventEmitter = require('../lib/EventEmitter.js')
 
 const _events = new EventEmitter();
+
+const xml_parser = new XMLParser();
 
 // Event Names
 const EVENT_RAW_CARD_RECEIVED = "raw-card-received";
@@ -11,7 +14,7 @@ const EVENT_ERROR = 'error';
 
 // http://<ip>:<port>/Nue_Services/EntiService
 const PSAP2_Service = {
-	on: _events.on,
+	on: (name,callback) => _events.on(name,callback),
 
 	Nue_Services: {
 		EntiServicePort: {
@@ -37,14 +40,14 @@ const PSAP2_Service = {
 
 						// Decode card xml to json
 						let card = null;
-						if( xml_parser.validate(xmlData) === true) { //optional (it'll return an object in case it's not valid)
+						try {
 							card = xml_parser.parse(xmlData); // ,options);
 							if( card.ContactCard ) {
 								card = card.ContactCard;
 							}
 						}
-						else {
-							console.error( 'Invalid XML for contact card' );
+						catch( err ) {
+							console.error( 'Invalid XML for contact card: %s', err );
 							_events.emit( EVENT_INVALID_XML_CARD, xmlData );
 							resolve(false);
 						}					
@@ -55,7 +58,7 @@ const PSAP2_Service = {
 						for( let i=0; i<path.length && el; i++ ) {
 							el = el[path[i]];
 						}
-						if( el && xml_parser.validate(el['Value']) === true) {
+						if( el && XMLValidator.validate(el['Value']) === true) {
 							el['Value'] = xml_parser.parse(el['Value']);
 						}
 
