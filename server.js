@@ -5,10 +5,12 @@ const fs = require('fs');
 const Options = require('./Options').Options;
 const DataStore = require('./DataStore.js');
 const soap_service = require('./soap/PSAP2_Service.js');
+const { MessageQueue } = require('./mq');
 
 const web_opts = Options.web || { port: 8001 };
 const soap_opts = Options.soap || {};
 const store_opts = Options.store || {};
+const mq_opts = Options.mq || {};
 
 
 function _exit( err ) {
@@ -43,11 +45,21 @@ async function run() {
 		_exit( err );
 	}
 
+	let _mq = mq_opts.disabled === true ? null : new MessageQueue(mq_opts);
+
 	// Setting up actions on cards arrival and some error handling
 	soap_service
 	.on( 'card-received', ( card_record ) => {
-		_data_store.addCard( card_record ).then( (ok) => {
+		_data_store.addCard( card_record ).then( async (ok) => {
 			console.log( 'Card record stored. Res: %s', ok );
+			if( _mq != null ) {
+				try {
+					const res = await _mq.send( JSON.stringify(card_record.json) );
+				}
+				catch( err ) {
+					console.error('MessageQueue error: %s', err);
+				}
+			}
 		},
 		(err) => {
 			console.error( 'Error in saving card record:\n%s', err );

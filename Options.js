@@ -21,6 +21,12 @@ var Options = {
 			}
 			*/
 		}
+	},
+	mq: {
+		// disabled: false,
+		url: 'amqp://psap2:psap2@172.18.35.42/psap2',
+		queue: 'jarvis'
+		// queue: 'seme'
 	}
 };
 
