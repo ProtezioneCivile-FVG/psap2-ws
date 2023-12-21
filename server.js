@@ -59,7 +59,7 @@ async function run() {
 			console.log( 'Card record stored. Res: %s', ok );
 
 			if( _mq != null ) {
-				const res = await _mq.publish( JSON.stringify(card_record.json) );
+				const res = await _mq.publish( card_record.json );
 			}
 		}
 		catch( err ) {

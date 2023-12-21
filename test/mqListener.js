@@ -12,14 +12,18 @@ async function run() {
 
 		mq.consume( msg => {
 			// debugger
-			let json = {message: msg.content.toString()};
+			let content = msg.content.toString();
+			let json = null;
 			try {
-				json = JSON.parse(json.message);
+				json = JSON.parse(content);
 			}
 			catch( err ) {
-				console.error('Not a json message');
+				console.error(err);
 			}
-			console.log('got message from queue:\n%s\n', JSON.stringify(json, null, 2));
+			if( json )
+				console.log('got message from queue:\n%s\n', JSON.stringify(json, null, 2));
+			else
+				console.log('got non json message:\n%s\n', content );
 			mq.ack(msg);
 		});
 		// console.log('End listening');
