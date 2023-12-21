@@ -25,8 +25,15 @@ var Options = {
 	mq: {
 		// disabled: false,
 		url: 'amqp://psap2:psap2@172.18.35.42/psap2',
-		queue: 'jarvis'
-		// queue: 'seme'
+		exchange: {
+			name: 'cards',
+			type: 'fanout',
+			options: { durable: true }
+		},
+		queue: {
+			name: 'sor'
+		},
+		disabled: false
 	}
 };
 

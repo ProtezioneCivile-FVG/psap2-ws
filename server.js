@@ -5,7 +5,7 @@ const fs = require('fs');
 const Options = require('./Options').Options;
 const DataStore = require('./DataStore.js');
 const soap_service = require('./soap/PSAP2_Service.js');
-const { MessageQueue } = require('./mq');
+const { Producer } = require('./mq/Producer.js');
 
 const web_opts = Options.web || { port: 8001 };
 const soap_opts = Options.soap || {};
@@ -45,7 +45,11 @@ async function run() {
 		_exit( err );
 	}
 
-	let _mq = mq_opts.disabled === true ? null : new MessageQueue(mq_opts);
+	let _mq = null;
+	if( mq_opts.disabled !== true ) {
+		_mq = new Producer(mq_opts);
+		await _mq.open();
+	}
 
 	// Setting up actions on cards arrival and some error handling
 	soap_service
@@ -54,7 +58,7 @@ async function run() {
 			console.log( 'Card record stored. Res: %s', ok );
 			if( _mq != null ) {
 				try {
-					const res = await _mq.send( JSON.stringify(card_record.json) );
+					const res = await _mq.publish( JSON.stringify(card_record.json) );
 				}
 				catch( err ) {
 					console.error('MessageQueue error: %s', err);
