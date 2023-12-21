@@ -53,21 +53,18 @@ async function run() {
 
 	// Setting up actions on cards arrival and some error handling
 	soap_service
-	.on( 'card-received', ( card_record ) => {
-		_data_store.addCard( card_record ).then( async (ok) => {
+	.on( 'card-received', async ( card_record ) => {
+		try {
+			let ok = await _data_store.addCard( card_record );
 			console.log( 'Card record stored. Res: %s', ok );
+
 			if( _mq != null ) {
-				try {
-					const res = await _mq.publish( JSON.stringify(card_record.json) );
-				}
-				catch( err ) {
-					console.error('MessageQueue error: %s', err);
-				}
+				const res = await _mq.publish( JSON.stringify(card_record.json) );
 			}
-		},
-		(err) => {
+		}
+		catch( err ) {
 			console.error( 'Error in saving card record:\n%s', err );
-		});
+		}
 	})
 	.on( 'error', (err) => {
 		console.err( 'Error in soap service:\n%s', err );
@@ -79,13 +76,19 @@ async function run() {
 
 	console.log('Starting web server');
 	const app = express();
-	app.listen( web_opts.port, function(){
+	const server = app.listen( web_opts.port, function(){
 		console.log('\tdone.\nStarting web service');
 		soap.listen(app, '/Nue_Services/EntiService', soap_service, wsdl, function() {
 			console.log('\tdone\nWeb Server listening on port %s', web_opts.port );
 		});
 	});
 
+	process.on('SIGTERM', () => {
+		console.debug('SIGTERM signal received: closing HTTP server');
+		server.close(() => {
+		  console.debug('HTTP server closed')
+		});
+	})	
 }
 
 try {
