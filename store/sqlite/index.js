@@ -147,6 +147,7 @@ Store.prototype.setupDB = async function() {
 		'id INTEGER NOT NULL',
 		'cid TEXT',
 		'created_dt TEXT',
+		'received_dt TEXT',
 		'json TEXT',
 		'xml TEXT'
 	];
@@ -157,6 +158,7 @@ Store.prototype.setupDB = async function() {
 		'CREATE INDEX IF NOT EXISTS ix_id ON cards ( id )',
 		'CREATE INDEX IF NOT EXISTS ix_cid ON cards ( cid )',
 		'CREATE INDEX IF NOT EXISTS ix_create_dt ON cards ( created_dt )',
+		'CREATE INDEX IF NOT EXISTS ix_received_dt ON cards ( received_dt )',
 		// views
 		//stats_view_sql,
 	];
@@ -250,6 +252,7 @@ Store.prototype.newCard = async function( c ) {
         id: c.id,
         cid: c.cid,
         created_dt: dateTimeFormat(c.created_dt),
+        received_dt: dateTimeFormat(new Date()),
 		json: c.json,
 		xml: c.xml
     };
