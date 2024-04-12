@@ -26,9 +26,8 @@ function cdataOf(xml) {
 	return "<![CDATA[" + escapeCDATA(xml) + "]]>";
 }
 
-let server = args[1];
-if( server != null )
-	url = url.replace('localhost', server);
+let server = args[1] || "psap2ws.protezionecivile.fvg.it";
+url = url.replace('localhost', server);
 
 console.log( 'Parsing wsdl from %s', url );
 
