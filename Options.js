@@ -9,8 +9,8 @@ var Options = {
 	store: {
 		type: 'sqlite',
 		params: {
-			filename: __dirname + '/contactcards.sqlite3'
-			// filename: 'srv/data/psap2/contactcards.sqlite3'
+			//filename: __dirname + '/contactcards.sqlite3'
+			filename: '/srv/data/psap2/contactcards.sqlite3'
 			/*
 			user: '',
 			password: '',
