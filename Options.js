@@ -3,13 +3,14 @@ var Options = {
 		port: 8001
 	},
 	soap: {
-		wsdl: './soap/psap2.wsdl',
+		wsdl: __dirname + '/soap/psap2.wsdl',
 		//service: './soap/services.js'
 	},
 	store: {
 		type: 'sqlite',
 		params: {
-			filename: './contactcards.sqlite3'
+			filename: __dirname + '/contactcards.sqlite3'
+			// filename: 'srv/data/psap2/contactcards.sqlite3'
 			/*
 			user: '',
 			password: '',

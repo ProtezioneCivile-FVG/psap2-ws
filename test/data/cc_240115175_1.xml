@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?><ContactCard xmlns="http://NUE.112.it/NUE112">
+<ID>240115175</ID>
+
+<CreateDate>2024-03-20T07:47:43</CreateDate>
+
+<CallType>PhoneCall</CallType>
+
+<Operator><![CDATA[DEL164879]]></Operator>
+
+<Reference><![CDATA[DEL164879]]></Reference>
+
+<Classification><![CDATA[Soccorso sanitario]]></Classification>
+
+<ClassificationDetail><![CDATA[Incidente stradale con feriti]]></ClassificationDetail>
+
+<ClassificationAttribute><![CDATA[]]></ClassificationAttribute>
+
+<HighPriority>FALSE</HighPriority>
+
+<InvolvedNumber>0</InvolvedNumber>
+
+<ContactCardLink>0</ContactCardLink>
+
+<CompetenceType><![CDATA[118]]></CompetenceType>
+
+<MainLocation><Point><Latitude>45.630521</Latitude>
+
+<Longitude>13.806588</Longitude></Point></MainLocation>
+
+<CID>75000393313712305</CID>
+
+<TimestampSent>2024-03-20T07:48:49</TimestampSent>
+
+<Caller><Number>3313712305</Number>
+
+<Ope_ID>000</Ope_ID>
+
+<Surname><![CDATA[]]></Surname>
+
+<Name><![CDATA[]]></Name>
+
+<Location><Manual><PointOfInterest><![CDATA[]]></PointOfInterest>
+
+<Toponymy><![CDATA[VIA DELLE]]></Toponymy>
+
+<Address><![CDATA[CAMPANELLE]]></Address>
+
+<CivicNumberAdditional><![CDATA[]]></CivicNumberAdditional>
+
+<City><![CDATA[TRIESTE]]></City>
+
+<District><![CDATA[]]></District>
+
+<Province>TS</Province>
+
+<CrossRoads><Toponymy><![CDATA[]]></Toponymy>
+
+<Address><![CDATA[]]></Address></CrossRoads>
+
+<AdditionalInfo><![CDATA[[45° 37' 49.88''|13° 48' 23.72'']]]></AdditionalInfo></Manual>
+
+<Automatic><CEDInterforze><Localization><Value><![CDATA[]]></Value></Localization></CEDInterforze></Automatic></Location></Caller>
+
+<Called><Number>112</Number></Called>
+
+<Companies><Competence><Primary><Company><Code>118FRIULI</Code><Enabled>TRUE</Enabled><Description><![CDATA[118 Friuli Venezia Giulia]]></Description></Company></Primary>
+
+<PublicSecurity><Company><Code>TSPQ00</Code><Enabled>TRUE</Enabled><Description><![CDATA[PS Trieste]]></Description></Company><Company><Code>027606</Code><Enabled>FALSE</Enabled><Description><![CDATA[CC Trieste]]></Description></Company></PublicSecurity></Competence>
+
+<ForwardedTo><Company><Code>VVFTRIESTE</Code><Enabled>TRUE</Enabled><Description><![CDATA[VVF Trieste]]></Description></Company></ForwardedTo></Companies>
+</ContactCard>
