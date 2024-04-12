@@ -1,7 +1,7 @@
 const soap = require('soap');
 const util = require('util');
 
-const url = 'http://localhost:8001/Nue_Services/EntiService?wsdl';
+let url = 'http://localhost:8001/Nue_Services/EntiService?wsdl';
 
 //let args = {SchedaContatto: 'Ciao, sono una scheda contatto'};
 
@@ -26,6 +26,9 @@ function cdataOf(xml) {
 	return "<![CDATA[" + escapeCDATA(xml) + "]]>";
 }
 
+let server = args[1];
+if( server != null )
+	url = url.replace('localhost', server);
 
 console.log( 'Parsing wsdl from %s', url );
 

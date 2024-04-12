@@ -1,0 +1,15 @@
+[Unit]
+Description=psap2 web service
+After=network.target
+
+[Service]
+Type=simple
+User=stim
+ExecStart=/usr/bin/node /srv/www/psap2/server.js
+Restart=on-failure
+# StandardOutput=syslog
+# StandardError=syslog
+SyslogIdentifier=psap2ws
+
+[Install]
+WantedBy=multi-user.target

@@ -48,13 +48,16 @@ async function run() {
 	let _mq = null;
 	if( mq_opts.disabled !== true ) {
 		_mq = new Producer(mq_opts);
+		console.log('Starting Message queue channel');
 		await _mq.open();
+		console.log('\tdone.');
 	}
 
 	// Setting up actions on cards arrival and some error handling
 	soap_service
 	.on( 'card-received', async ( card_record ) => {
 		try {
+			console.log( 'Card received.' );
 			let ok = await _data_store.addCard( card_record );
 			console.log( 'Card record stored. Res: %s', ok );
 
@@ -84,10 +87,30 @@ async function run() {
 	});
 
 	process.on('SIGTERM', () => {
-		console.debug('SIGTERM signal received: closing HTTP server');
-		server.close(() => {
-		  console.debug('HTTP server closed')
-		});
+		try {
+			console.debug('SIGTERM signal received: closing HTTP server');
+			server.close(() => {
+			  console.debug('HTTP server closed')
+			});
+			
+			if( _mq ) {
+				console.debug('Closing message queue');
+				_mq.close().then(
+					() => {
+						_mq = null;
+						console.debug('Message queue closed');
+					},
+					(err) => {
+						_mq = null;
+						console.error('Error closing message queue channel: %s', err );
+					}
+				);
+			}
+		}
+		catch( err ) {
+			console.error('ERROR closing application: %s', err );
+			process.exit();
+		}
 	})	
 }
 

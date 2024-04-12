@@ -65,7 +65,7 @@
 
 	<wsdl:service name="Nue_Services">
 		<wsdl:port name="EntiServicePort" binding="tns:BasicHttpBinding_IEntiService">
-			<soap:address location="http://localhost:8001/Nue_Services/EntiService"/>
+			<soap:address location="http://172.18.35.21:8001/Nue_Services/EntiService"/>
 		</wsdl:port>
 	</wsdl:service>
 
