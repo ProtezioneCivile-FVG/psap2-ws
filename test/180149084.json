@@ -1,0 +1,79 @@
+{
+  "ID": 180149084,
+  "CreateDate": "2018-04-05T08:51:01",
+  "CallType": "PhoneCall",
+  "Operator": 146622,
+  "Reference": 161483,
+  "Classification": "SOCC. TECNICO URG.",
+  "ClassificationDetail": "ALTRI SOCCORSI",
+  "ClassificationAttribute": " ",
+  "HighPriority": "FALSE",
+  "InvolvedNumber": 0,
+  "CompetenceType": "VVF",
+  "MainLocation": {
+    "Point": {
+      "Latitude": 45.910137,
+      "Longitude": 13.331827
+    }
+  },
+  "CID": "84599393315732672",
+  "TimestampSent": "2018-04-05T08:51:39",
+  "Caller": {
+    "Number": 3315732672,
+    "Ope_ID": 599,
+    "Surname": "TOFFANIN",
+    "Name": "FABIO",
+    "Location": {
+      "Manual": {
+        "PointOfInterest": "",
+        "Toponymy": "VIA",
+        "Address": "NATISONE",
+        "CivicNumber": 43,
+        "CivicNumberAdditional": "",
+        "City": "PALMANOVA",
+        "District": "PALMANOVA",
+        "Province": "UD",
+        "CrossRoads": {
+          "Toponymy": "",
+          "Address": ""
+        },
+        "AdditionalInfo": "TEST TEST TEST"
+      },
+      "Automatic": {
+        "CEDInterforze": {
+          "Localization": {
+            "Value": {
+              "?xml": "",
+              "svc_result": {
+                "eme_lia": {
+                  "result": "UNKNOWN TLC OPERATOR",
+                  "add_info": 599
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Called": "",
+  "Companies": {
+    "Competence": {
+      "Primary": {
+        "Company": {
+          "Code": "VVFUDINE",
+          "Enabled": "TRUE",
+          "Description": "VVF UDINE"
+        }
+      },
+      "PublicSecurity": {
+        "Company": {
+          "Code": 22848,
+          "Enabled": "TRUE",
+          "Description": "CC PALMANOVA"
+        }
+      }
+    },
+    "ForwardedTo": ""
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "ID": 100032537,
+  "CreateDate": "2009-09-03T14:43:00",
+  "CallType": "PhoneCall",
+  "Operator": "Persichetti",
+  "Reference": "Verdi",
+  "Classification": "Situazioni di pericolo",
+  "ClassificationDetail": "Violenza contro persone",
+  "ClassificationAttribute": "Presenza Feriti",
+  "HighPriority": "TRUE",
+  "InvolvedNumber": 3,
+  "ContactCardLink": 100032530,
+  "CompetenceType": "PUBSIC",
+  "MainLocation": {
+    "Point": {
+      "Latitude": 45.2929,
+      "Longitude": 9.7676
+    }
+  },
+  "CID": 15220390212345678,
+  "TimestampSent": "2009-09-03T14:43:50",
+  "Caller": {
+    "Number": 212345678,
+    "Ope_ID": 204,
+    "Surname": "Rossi",
+    "Name": "Mario",
+    "Location": {
+      "Manual": {
+        "PointOfInterest": "MERCATONE EMMEZETA",
+        "Toponymy": "Via",
+        "Address": "Ragusa",
+        "CivicNumber": 50,
+        "CivicNumberAdditional": "/A",
+        "City": "VEDDASCA",
+        "District": "ARMIO",
+        "Province": "VA",
+        "CrossRoads": {
+          "Toponymy": "Piazza",
+          "Address": "Libertà"
+        },
+        "AdditionalInfo": "Scala A Interno 3 Piano IV°"
+      },
+      "Automatic": {
+        "CEDInterforze": {
+          "Localization": {
+            "Value": "\n\t\t\t\t\t\t\t\t<?xml version=\"1.0\"?>\n\t\t\t\t\t\t\t\t<!DOCTYPE svc_result SYSTEM \"CENTAURO_MLP_CO_CED_SVC_RESULT_10.dtd\">\n\t\t\t\t\t\t\t\t<svc_result ver=\"1.0\">\n\t\t\t\t\t\t\t\t\t<eme_lia ver=\"1.0\">\n\t\t\t\t\t\t\t\t\t\t<eme_pos>\n\t\t\t\t\t\t\t\t\t\t\t<msid type=\"MSISDN\" enc=\"ASC\">391234567890</msid>\n\t\t\t\t\t\t\t\t\t\t\t<pd>\n\t\t\t\t\t\t\t\t\t\t\t\t<time utc_off=\"0000\">20030512210349</time>\n\t\t\t\t\t\t\t\t\t\t\t\t<shape>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<CircularArea>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<coord>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<X>47.6097</X>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<Y>-12.2324</Y>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</coord>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<radius>25</radius>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<distanceUnit>meter</distanceUnit>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</CircularArea>\n\t\t\t\t\t\t\t\t\t\t\t\t</shape>\n\t\t\t\t\t\t\t\t\t\t\t\t<lev_conf>97</lev_conf>\n\t\t\t\t\t\t\t\t\t\t\t</pd>\n\t\t\t\t\t\t\t\t\t\t</eme_pos>\n\t\t\t\t\t\t\t\t\t</eme_lia>\n\t\t\t\t\t\t\t\t</svc_result>\n\t\t\t\t\t\t\t"
+          }
+        },
+        "eCall": {
+          "Localization": {
+            "Value": "\n\t\t\t\t\t\t\t\t<ECallMessage>\n\t\t\t\t\t\t\t\t\t<id>1</id>\n\t\t\t\t\t\t\t\t\t<msd>\n\t\t\t\t\t\t\t\t\t\t<msdStructure>\n\t\t\t\t\t\t\t\t\t\t\t<messageIdentifier>1</messageIdentifier>\n\t\t\t\t\t\t\t\t\t\t\t<control>\n\t\t\t\t\t\t\t\t\t\t\t\t<automaticActivation>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<true/>\n\t\t\t\t\t\t\t\t\t\t\t\t</automaticActivation>\n\t\t\t\t\t\t\t\t\t\t\t\t<testCall>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<false/>\n\t\t\t\t\t\t\t\t\t\t\t\t</testCall>\n\t\t\t\t\t\t\t\t\t\t\t\t<positionCanBeTrusted>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<true/>\n\t\t\t\t\t\t\t\t\t\t\t\t</positionCanBeTrusted>\n\t\t\t\t\t\t\t\t\t\t\t\t<vehicleType>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<passengerVehicleClassM1/>\n\t\t\t\t\t\t\t\t\t\t\t\t</vehicleType>\n\t\t\t\t\t\t\t\t\t\t\t</control>\n\t\t\t\t\t\t\t\t\t\t\t<vehicleIdentificationNumber>\n\t\t\t\t\t\t\t\t\t\t\t\t<isowmi>WMI</isowmi>\n\t\t\t\t\t\t\t\t\t\t\t\t<isovds>VDSVDS</isovds>\n\t\t\t\t\t\t\t\t\t\t\t\t<isovisModelyear>Y</isovisModelyear>\n\t\t\t\t\t\t\t\t\t\t\t\t<isovisSeqPlant>A123456</isovisSeqPlant>\n\t\t\t\t\t\t\t\t\t\t\t</vehicleIdentificationNumber>\n\t\t\t\t\t\t\t\t\t\t\t<vehiclePropulsionStorageType>\n\t\t\t\t\t\t\t\t\t\t\t\t<gasolineTankPresent>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<true/>\n\t\t\t\t\t\t\t\t\t\t\t\t</gasolineTankPresent>\n\t\t\t\t\t\t\t\t\t\t\t\t<electricEnergyStorage>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<true/>\n\t\t\t\t\t\t\t\t\t\t\t\t</electricEnergyStorage>\n\t\t\t\t\t\t\t\t\t\t\t</vehiclePropulsionStorageType>\n\t\t\t\t\t\t\t\t\t\t\t<timestamp>123456789</timestamp>\n\t\t\t\t\t\t\t\t\t\t\t<vehicleLocation>\n\t\t\t\t\t\t\t\t\t\t\t\t<positionLatitude>173881200</positionLatitude>\n\t\t\t\t\t\t\t\t\t\t\t\t<positionLongitude>41822520</positionLongitude>\n\t\t\t\t\t\t\t\t\t\t\t</vehicleLocation>\n\t\t\t\t\t\t\t\t\t\t\t<vehicleDirection>14</vehicleDirection>\n\t\t\t\t\t\t\t\t\t\t\t<recentVehicleLocationN1>\n\t\t\t\t\t\t\t\t\t\t\t\t<latitudeDelta>10</latitudeDelta>\n\t\t\t\t\t\t\t\t\t\t\t\t<longitudeDelta>-10</longitudeDelta>\n\t\t\t\t\t\t\t\t\t\t\t</recentVehicleLocationN1>\n\t\t\t\t\t\t\t\t\t\t\t<recentVehicleLocationN2>\n\t\t\t\t\t\t\t\t\t\t\t\t<latitudeDelta>10</latitudeDelta>\n\t\t\t\t\t\t\t\t\t\t\t\t<longitudeDelta>-20</longitudeDelta>\n\t\t\t\t\t\t\t\t\t\t\t</recentVehicleLocationN2>\n\t\t\t\t\t\t\t\t\t\t\t<numberOfPassengers>2</numberOfPassengers>\n\t\t\t\t\t\t\t\t\t\t</msdStructure>\n\t\t\t\t\t\t\t\t\t\t<optionalAdditionalData>\n\t\t\t\t\t\t\t\t\t\t\t<oid>1.2.125</oid>\n\t\t\t\t\t\t\t\t\t\t\t<data>30304646</data>\n\t\t\t\t\t\t\t\t\t\t</optionalAdditionalData>\n\t\t\t\t\t\t\t\t\t</msd>\n\t\t\t\t\t\t\t\t</ECallMessage>\n\t\t\t\t\t\t\t",
+            "Eucaris": ""
+          }
+        },
+        "AutomaticAlarms": {
+          "Localization": {
+            "Value": ""
+          }
+        }
+      }
+    }
+  },
+  "Called": {
+    "Number": 113
+  },
+  "Companies": {
+    "Competence": {
+      "Primary": {
+        "Company": {
+          "Code": "{1C87ADA4-74C0-4e7e-8721-899682BDE369}",
+          "Enabled": "TRUE",
+          "Description": "Ente XXX"
+        }
+      },
+      "PublicSecurity": {
+        "Company": [
+          {
+            "Code": 301076,
+            "Enabled": "TRUE",
+            "Description": "Ente YYY"
+          },
+          {
+            "Code": 290776,
+            "Enabled": "FALSE",
+            "Description": "Ente ZZZ"
+          }
+        ]
+      }
+    },
+    "ForwardedTo": {
+      "Company": [
+        {
+          "Code": "{9856969F-566D-4f4e-89B9-B801A614AB60}",
+          "Enabled": "TRUE",
+          "Description": "Ente TTT"
+        },
+        {
+          "Code": "{904647CF-A84B-4753-A78B-2D31ED7B14D1}",
+          "Enabled": "TRUE",
+          "Description": "Ente UUU"
+        },
+        {
+          "Code": "{AFC343F8-4744-40ac-BD5F-F16AFAEA8D21}",
+          "Enabled": "TRUE",
+          "Description": "Ente HHH"
+        }
+      ]
+    }
+  },
+  "Notes": {
+    "Note": [
+      "Note XXX",
+      "Note YYY"
+    ]
+  }
+}
