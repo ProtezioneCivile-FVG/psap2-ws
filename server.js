@@ -70,7 +70,7 @@ async function run() {
 		}
 	})
 	.on( 'error', (err) => {
-		console.err( 'Error in soap service:\n%s', err );
+		console.error( 'Error in soap service:\n%s', err );
 	})
 	.on( 'invalid-xml-card', (xmlData) => {
 		console.log( 'Invalid XML received: \n---\n%s\n---\n', xmlData );
@@ -78,11 +78,12 @@ async function run() {
 
 
 	console.log('Starting web server');
+	const path = '/Nue_Services/EntiService';
 	const app = express();
 	const server = app.listen( web_opts.port, function(){
 		console.log('\tdone.\nStarting web service');
-		soap.listen(app, '/Nue_Services/EntiService', soap_service, wsdl, function() {
-			console.log('\tdone\nWeb Server listening on port %s', web_opts.port );
+		soap.listen(app, path, soap_service, wsdl, function() {
+			console.log('\tdone\nWeb Server listening on %s:%s', path, web_opts.port );
 		});
 	});
 
