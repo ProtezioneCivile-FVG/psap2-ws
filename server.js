@@ -81,9 +81,16 @@ async function run() {
 	const app = express();
 	const server = app.listen( web_opts.port, function(){
 		console.log('\tdone.\nStarting web service');
-		soap.listen(app, '/Nue_Services/EntiService', soap_service, wsdl, function() {
+		let ws = soap.listen(app, '/Nue_Services/EntiService', soap_service, wsdl, function() {
 			console.log('\tdone\nWeb Server listening on port %s', web_opts.port );
 		});
+		if( web_opts.trace === true ) {
+			console.log('*** TRACE ENABLED ****');
+			ws.log = function(type, data, req) {
+				// type is 'received', 'replied', 'info' or 'error'
+				console.log("*** %s\n%s\n%s", type, data, req);
+			};
+		}
 	});
 
 	process.on('SIGTERM', () => {
