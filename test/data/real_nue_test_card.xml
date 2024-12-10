@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContactCard xmlns="http://NUE.112.it/NUE112">
+	<ID>240579335</ID>
+	<CreateDate>2024-12-10T11:05:03</CreateDate>
+	<CallType>PhoneCall</CallType>
+	<Operator><![CDATA[TOF146622]]></Operator>
+	<Reference><![CDATA[DEL164879]]></Reference>
+	<Classification><![CDATA[Soccorso tecnico urgente]]></Classification>
+	<ClassificationDetail><![CDATA[Incendio Boschivo]]></ClassificationDetail>
+	<ClassificationAttribute><![CDATA[]]></ClassificationAttribute>
+	<HighPriority>FALSE</HighPriority>
+	<InvolvedNumber>0</InvolvedNumber>
+	<ContactCardLink>0</ContactCardLink>
+	<CompetenceType><![CDATA[SOR]]></CompetenceType>
+	<MainLocation>
+		<Point>
+			<Latitude>46.279989</Latitude>
+			<Longitude>12.908786</Longitude>
+		</Point>
+	</MainLocation>
+	<CID>35244393315732672</CID>
+	<TimestampSent>2024-12-10T11:06:03</TimestampSent>
+	<Caller>
+		<Number>3315732672</Number>
+		<Ope_ID>244</Ope_ID>
+		<Surname><![CDATA[TOFFANIN (Coordinatore NUE112)]]></Surname>
+		<Name><![CDATA[FABIO]]></Name>
+		<Location>
+			<Manual>
+				<PointOfInterest><![CDATA[MONTE CECCON]]></PointOfInterest>
+				<Toponymy><![CDATA[]]></Toponymy>
+				<Address><![CDATA[]]></Address>
+				<CivicNumberAdditional><![CDATA[]]></CivicNumberAdditional>
+				<City><![CDATA[CLAUZETTO]]></City>
+				<District><![CDATA[]]></District>
+				<Province>PN</Province>
+				<CrossRoads>
+					<Toponymy><![CDATA[]]></Toponymy>
+					<Address><![CDATA[]]></Address>
+				</CrossRoads>
+				<AdditionalInfo><![CDATA[scheda di prova con invio anche del CLI]]></AdditionalInfo>
+			</Manual>
+			<Automatic>
+				<CEDInterforze>
+					<Localization>
+						<Value><![CDATA[<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svc_result SYSTEM "CENTAURO_MLP_CO_CED_SVC_RESULT_10.dtd"><svc_result ver="1.0"><eme_lia ver="1.0"><eme_pos><msid type="MSISDN" enc="ASC">3315732672</msid><pd><time utc_off="+0100">20241210110455</time><shape><CircularArea srsName="www.epsg.org#4326"><coord><X>45 54 20N</X><Y>013 20 08E</Y></coord><radius>1163</radius></CircularArea></shape><lev_conf>90</lev_conf></pd></eme_pos></eme_lia></svc_result>]]></Value>
+					</Localization>
+				</CEDInterforze>
+			</Automatic>
+		</Location>
+	</Caller>
+	<Called>
+		<Number>112</Number>
+	</Called>
+	<Companies>
+		<Competence>
+			<Primary>
+				<Company>
+					<Code>PCFV01</Code>
+					<Enabled>TRUE</Enabled>
+					<Description><![CDATA[SOR]]></Description>
+				</Company>
+			</Primary>
+			<PublicSecurity>
+				<Company>
+					<Code>041923</Code>
+					<Enabled>TRUE</Enabled>
+					<Description><![CDATA[CC Spilimbergo]]></Description>
+				</Company>
+			</PublicSecurity>
+		</Competence>
+		<ForwardedTo></ForwardedTo>
+	</Companies>
+</ContactCard>
+				

@@ -35,8 +35,24 @@ const PSAP2_Service = {
 				return new Promise((resolve, reject) => {
 
 					try {
-						const xmlData = args.SchedaContatto;
-						_events.emit( EVENT_RAW_CARD_RECEIVED, xmlData );
+						_events.emit( EVENT_RAW_CARD_RECEIVED, args );
+
+						const parameters = args.parameters || args;
+						const data = parameters.SchedaContatto || parameters;
+
+						console.log("Raw soap: (%s) %s\n\n", typeof(data), JSON.stringify(data));
+
+						let xmlData = null;
+						if(Array.isArray(data)) {
+							let pp = {};
+							for( let i=0; i<data.length; i++ ) {
+								let it = data[i].item || data[i];
+								if( it.key ) {
+									pp[it.key] = it.value;
+								}
+							}
+							xmlData = pp.SchedaContatto;
+						}
 
 						// Decode card xml to json
 						let card = null;

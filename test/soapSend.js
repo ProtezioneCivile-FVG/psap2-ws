@@ -37,15 +37,20 @@ soap.createClient(url, function(err, client) {
 		 return;
 	}
 	// console.log( "client.describe: %s", util.inspect(client.describe()) );
-	let parms = {
-		// SchedaContatto: cdataOf(xml)
-		// SchedaContatto: escapeCDATA(xml)
-		SchedaContatto: xml
-	};
+	// let parms = {
+	// 	// SchedaContatto: cdataOf(xml)
+	// 	// SchedaContatto: escapeCDATA(xml)
+	// 	SchedaContatto: xml
+	// };
+	let parms = { parameters : [
+		{item: {key: "SchedaContatto", value: xml }},
+		{item: {key: "EnteMittente", value: "NUE" }},
+		{item: {key: "ProvinciaMittente", value: "UD" }},
+	]};
 
-	console.log(parms.SchedaContatto);
+	// console.log(parms.SchedaContatto);
 
-	console.log( 'Invoking soap method' );
+	console.log( 'Invoking soap method, url is : %s', url );
 	client.GestContatto(parms, function(err, result) {
 		if( err ) console.error( 'Invoke Error: %s', err );
 		

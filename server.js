@@ -70,7 +70,7 @@ async function run() {
 		}
 	})
 	.on( 'error', (err) => {
-		console.err( 'Error in soap service:\n%s', err );
+		console.error( 'Error in soap service:\n%s', err );
 	})
 	.on( 'invalid-xml-card', (xmlData) => {
 		console.log( 'Invalid XML received: \n---\n%s\n---\n', xmlData );
@@ -88,7 +88,8 @@ async function run() {
 			console.log('*** TRACE ENABLED ****');
 			ws.log = function(type, data, req) {
 				// type is 'received', 'replied', 'info' or 'error'
-				console.log("*** %s\n%s\n%s", type, data, req);
+				// console.log("*** %s\n%s\n%s", type, data, req);
+				console.log("*** %s\n%s", type, data);
 			};
 		}
 	});
