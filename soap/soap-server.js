@@ -1,6 +1,7 @@
 const { XMLParser, XMLValidator } = require('fast-xml-parser');
-const bodyParser = require('body-parser');
-require('body-parser-xml')(bodyParser);
+// const bodyParser = require('body-parser');
+// require('body-parser-xml')(bodyParser);
+const express = require('express');
 
 let _wsdl = '';
 let _service = null;
@@ -24,18 +25,24 @@ const SoapMiddleware = {
 		_wsdl = wsdl;
 		_service = soap_service;
 
-		const parser = bodyParser.xml();
+		// const parser = bodyParser.xml();
+		// app.use(express.text({type:'*/*'}));
 
 		// WSDL management
-		app.get(path + '?wsdl', (req,res, next) => {
-			res.send( _wsdl );
-			next();
+		app.get(path, (req,res, next) => {
+			if(req.query.wsdl != null) {
+				res.send( _wsdl );
+			}
+			else
+				res.send(404);
 		});
 
-		app.post(path, parser, (req, res, next) => {
+		app.post(path, express.text({type:'*/*'}), (req, res, next) => {
 			try {
 				debugger;
+				let b = req.body;
 				console.log(req.body);
+				res.end();
 			}
 			catch( err ) {
 
