@@ -65,9 +65,11 @@ async function run() {
 			if( _mq != null ) {
 				const res = await _mq.publish( card_record.json );
 			}
+			return true;
 		}
 		catch( err ) {
 			console.error( 'Error in saving card record:\n%s', err );
+			return false;
 		}
 	})
 	.on( 'error', (err) => {

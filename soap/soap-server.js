@@ -1,15 +1,10 @@
 const { XMLParser, XMLValidator } = require('fast-xml-parser');
-// const bodyParser = require('body-parser');
-// require('body-parser-xml')(bodyParser);
 const express = require('express');
 
 let _wsdl = '';
 let _service = null;
+const _xml_parser = new XMLParser();
 
-
-function handleSOAPReq( req, res ) {
-
-}
 
 function SOAPResponse( xml ) {
 	return `<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
@@ -19,14 +14,14 @@ function SOAPResponse( xml ) {
 </s:Envelope>`;
 }
 
+const CDATA = (s) => `<![CDATA[${s}]]>`;
+
+
 const SoapMiddleware = {
 	listen(app, path, soap_service, wsdl, callback) {
 
 		_wsdl = wsdl;
 		_service = soap_service;
-
-		// const parser = bodyParser.xml();
-		// app.use(express.text({type:'*/*'}));
 
 		// WSDL management
 		app.get(path, (req,res, next) => {
@@ -37,17 +32,39 @@ const SoapMiddleware = {
 				res.send(404);
 		});
 
-		app.post(path, express.text({type:'*/*'}), (req, res, next) => {
+		const _rx_ENVL = /[^:]+:Envelope/;
+		const _rx_BODY = /[^:]+:Body/;
+		app.post(path, express.text({type:'*/*'}), async (req, res, next) => {
+
+			let soap = {};
 			try {
-				debugger;
-				let b = req.body;
-				console.log(req.body);
-				res.end();
+				const http_body = req.body;
+				const soap_obj = _xml_parser.parse(http_body);
+				const envelopeTag = Object.keys(soap_obj).find( k => _rx_ENVL.test(k) );
+				if(!envelopeTag) throw "No soap:Envelope found";
+
+				const envelope = soap_obj[envelopeTag];
+				const bodyTag = Object.keys(envelope).find( k => _rx_BODY.test(k) );
+				if(!bodyTag) throw "No soap:Body found";
+
+				soap.body = envelope[bodyTag];
 			}
 			catch( err ) {
+				console.error( 'Invalid XML for SOAP request: %s', err );
+				res.send(400, err);
+			}				
 
+			// SOAP Body parsed into json: pass it to service
+			try {
+				const method = soap_service.default_operation;
+				let response = await method(soap.body);
+				res.send(200, SOAPResponse(CDATA(response)));
 			}
-			next();
+			catch( err ) {
+				console.error( 'Failure while handling SOAP Request: %s', err );
+				res.send(200, SOAPResponse(CDATA(err.toString())));
+			}
+
 		});
 
 		return this;
