@@ -11,11 +11,13 @@
   "license": "ISC",
   "dependencies": {
     "amqplib": "^0.10.3",
+    "body-parser": "^1.20.3",
+    "body-parser-xml": "^2.0.5",
     "express": "^4.17.1",
     "fast-xml-parser": "^4.2.2",
     "moment": "^2.25.3",
     "qs": "^6.9.4",
-    "soap": "^0.45.0",
+    "soap": "^1.1.6",
     "sqlite3": "^5.1.6"
   }
 }

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+	<SOAP-ENV:Body>
+		<parameters>
+			<item>
+				<key>EnteMittente</key>
+				<value>NUE</value>
+			</item>
+			<item>
+				<key>SedeMittente</key>
+				<value>NFV</value>
+			</item>
+			<item>
+				<key>ProvinciaMittente</key>
+				<value>UD</value>
+			</item>
+			<item>
+				<key>EnteDestinatario</key>
+				<value>VVF</value>
+			</item>
+			<item>
+				<key>SedeDestinataria</key>
+				<value>PCFV01</value>
+			</item>
+			<item>
+				<key>ProvinciaDestinatario</key>
+				<value></value>
+			</item>
+			<item>
+				<key>SchedaContatto</key>
+				<value>&lt;?xml version="1.0" encoding="utf-8" ?&gt;&lt;ContactCard xmlns="http://NUE.112.it/NUE112"&gt;
+&lt;ID&gt;240579335&lt;/ID&gt;
+&lt;CreateDate&gt;2024-12-10T11:05:03&lt;/CreateDate&gt;
+&lt;CallType&gt;PhoneCall&lt;/CallType&gt;
+&lt;Operator&gt;&lt;![CDATA[TOF146622]]&gt;&lt;/Operator&gt;
+&lt;Reference&gt;&lt;![CDATA[DEL164879]]&gt;&lt;/Reference&gt;
+&lt;Classification&gt;&lt;![CDATA[Soccorso tecnico urgente]]&gt;&lt;/Classification&gt;
+&lt;ClassificationDetail&gt;&lt;![CDATA[Incendio Boschivo]]&gt;&lt;/ClassificationDetail&gt;
+&lt;ClassificationAttribute&gt;&lt;![CDATA[]]&gt;&lt;/ClassificationAttribute&gt;
+&lt;HighPriority&gt;FALSE&lt;/HighPriority&gt;
+&lt;InvolvedNumber&gt;0&lt;/InvolvedNumber&gt;
+&lt;ContactCardLink&gt;0&lt;/ContactCardLink&gt;
+&lt;CompetenceType&gt;&lt;![CDATA[SOR]]&gt;&lt;/CompetenceType&gt;
+&lt;MainLocation&gt;&lt;Point&gt;&lt;Latitude&gt;46.279989&lt;/Latitude&gt;
+&lt;Longitude&gt;12.908786&lt;/Longitude&gt;&lt;/Point&gt;&lt;/MainLocation&gt;
+&lt;CID&gt;35244393315732672&lt;/CID&gt;
+&lt;TimestampSent&gt;2024-12-10T11:06:03&lt;/TimestampSent&gt;
+&lt;Caller&gt;&lt;Number&gt;3315732672&lt;/Number&gt;
+&lt;Ope_ID&gt;244&lt;/Ope_ID&gt;
+&lt;Surname&gt;&lt;![CDATA[TOFFANIN (Coordinatore NUE112)]]&gt;&lt;/Surname&gt;
+&lt;Name&gt;&lt;![CDATA[FABIO]]&gt;&lt;/Name&gt;
+&lt;Location&gt;&lt;Manual&gt;&lt;PointOfInterest&gt;&lt;![CDATA[MONTE CECCON]]&gt;&lt;/PointOfInterest&gt;
+&lt;Toponymy&gt;&lt;![CDATA[]]&gt;&lt;/Toponymy&gt;
+&lt;Address&gt;&lt;![CDATA[]]&gt;&lt;/Address&gt;
+&lt;CivicNumberAdditional&gt;&lt;![CDATA[]]&gt;&lt;/CivicNumberAdditional&gt;
+&lt;City&gt;&lt;![CDATA[CLAUZETTO]]&gt;&lt;/City&gt;
+&lt;District&gt;&lt;![CDATA[]]&gt;&lt;/District&gt;
+&lt;Province&gt;PN&lt;/Province&gt;
+&lt;CrossRoads&gt;&lt;Toponymy&gt;&lt;![CDATA[]]&gt;&lt;/Toponymy&gt;
+&lt;Address&gt;&lt;![CDATA[]]&gt;&lt;/Address&gt;&lt;/CrossRoads&gt;
+&lt;AdditionalInfo&gt;&lt;![CDATA[scheda di prova con invio anche del CLI]]&gt;&lt;/AdditionalInfo&gt;&lt;/Manual&gt;
+&lt;Automatic&gt;&lt;CEDInterforze&gt;&lt;Localization&gt;&lt;Value&gt;&lt;![CDATA[&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;!DOCTYPE svc_result SYSTEM "CENTAURO_MLP_CO_CED_SVC_RESULT_10.dtd"&gt;&lt;svc_result ver="1.0"&gt;&lt;eme_lia ver="1.0"&gt;&lt;eme_pos&gt;&lt;msid type="MSISDN" enc="ASC"&gt;3315732672&lt;/msid&gt;&lt;pd&gt;&lt;time utc_off="+0100"&gt;20241210110455&lt;/time&gt;&lt;shape&gt;&lt;CircularArea srsName="www.epsg.org#4326"&gt;&lt;coord&gt;&lt;X&gt;45 54 20N&lt;/X&gt;&lt;Y&gt;013 20 08E&lt;/Y&gt;&lt;/coord&gt;&lt;radius&gt;1163&lt;/radius&gt;&lt;/CircularArea&gt;&lt;/shape&gt;&lt;lev_conf&gt;90&lt;/lev_conf&gt;&lt;/pd&gt;&lt;/eme_pos&gt;&lt;/eme_lia&gt;&lt;/svc_result&gt;]]&gt;&lt;/Value&gt;&lt;/Localization&gt;&lt;/CEDInterforze&gt;&lt;/Automatic&gt;&lt;/Location&gt;&lt;/Caller&gt;
+&lt;Called&gt;&lt;Number&gt;112&lt;/Number&gt;&lt;/Called&gt;
+&lt;Companies&gt;&lt;Competence&gt;&lt;Primary&gt;&lt;Company&gt;&lt;Code&gt;PCFV01&lt;/Code&gt;&lt;Enabled&gt;TRUE&lt;/Enabled&gt;&lt;Description&gt;&lt;![CDATA[SOR]]&gt;&lt;/Description&gt;&lt;/Company&gt;&lt;/Primary&gt;
+&lt;PublicSecurity&gt;&lt;Company&gt;&lt;Code&gt;041923&lt;/Code&gt;&lt;Enabled&gt;TRUE&lt;/Enabled&gt;&lt;Description&gt;&lt;![CDATA[CC Spilimbergo]]&gt;&lt;/Description&gt;&lt;/Company&gt;&lt;/PublicSecurity&gt;&lt;/Competence&gt;
+&lt;ForwardedTo&gt;&lt;/ForwardedTo&gt;&lt;/Companies&gt;
+&lt;/ContactCard&gt;</value>
+			</item>
+		</parameters>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
