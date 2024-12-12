@@ -63,7 +63,7 @@ const PSAP2_Service = {
 						const xmlCard = parameters.SchedaContatto || parameters;
 						delete parameters.SchedaContatto;
 
-						console.log("Raw soap: (%s) %s\n\n", typeof(xmlCard), JSON.stringify(xmlCard));
+						console.log("Raw card: (%s) %s\n\n", typeof(xmlCard), JSON.stringify(xmlCard));
 						_events.emit( EVENT_RAW_CARD_RECEIVED, xmlCard );
 
 						// Decode card xml to json

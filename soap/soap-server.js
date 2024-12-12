@@ -39,6 +39,8 @@ const SoapMiddleware = {
 			let soap = {};
 			try {
 				const http_body = req.body;
+				console.log('HTTP Request body:\n%s\n', http_body);
+
 				const soap_obj = _xml_parser.parse(http_body);
 				const envelopeTag = Object.keys(soap_obj).find( k => _rx_ENVL.test(k) );
 				if(!envelopeTag) throw "No soap:Envelope found";
