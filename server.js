@@ -1,5 +1,5 @@
-// const soap = require('soap');
-const soap = require('./soap/soap-server.js');
+const soap = require('soap');
+// const soap = require('./soap/soap-server.js');
 const express = require('express');
 const fs = require('fs');
 

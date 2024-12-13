@@ -32,8 +32,8 @@ const PSAP2_Service = {
 	on: (name,callback) => _events.on(name,callback),
 	get default_operation() { return this.Nue_Services.EntiServicePort.GestContatto },
 
-	Nue_Services: {
-		EntiServicePort: {
+	EntiService: {
+		BasicHttpBinding_IEntiService: {
 
 			GestContatto: function(args) {
 
