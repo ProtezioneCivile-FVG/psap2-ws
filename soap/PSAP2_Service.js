@@ -26,11 +26,12 @@ const getElement = (obj, path) => {
 	return el;
 }
 
+const GestContattoResult = (r) => ({ GestContattoResult: r });
 
 // http://<ip>:<port>/Nue_Services/EntiService
 const PSAP2_Service = {
 	on: (name,callback) => _events.on(name,callback),
-	get default_operation() { return this.Nue_Services.EntiServicePort.GestContatto },
+	get default_operation() { return this.EntiService.BasicHttpBinding_IEntiService.GestContatto },
 
 	EntiService: {
 		BasicHttpBinding_IEntiService: {
@@ -77,7 +78,7 @@ const PSAP2_Service = {
 						catch( err ) {
 							console.error( 'Invalid XML for contact card: %s', err );
 							_events.emit( EVENT_INVALID_XML_CARD, xmlCard );
-							resolve(false);
+							resolve(GestContattoResult(false));
 						}					
 
 						// For each nested CDATA, if exists, parse it and replace element
@@ -100,10 +101,10 @@ const PSAP2_Service = {
 
 						const r = _events.emit( EVENT_CARD_RECEIVED, record );
 						if( r.then ) {
-							r.then( (rr) => resolve(rr) );
+							r.then( (rr) => resolve(GestContattoResult(rr)) );
 						}
 						else
-							resolve( r );
+							resolve( GestContattoResult(r) );
 					}
 					catch( err ) {
 						console.error( "GestContatto: %s", err );
