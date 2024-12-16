@@ -1,6 +1,7 @@
 var Options = {
 	web: {
-		port: 8001
+		port: 8001,
+		trace: true
 	},
 	soap: {
 		wsdl: __dirname + '/soap/psap2.wsdl',
@@ -25,7 +26,8 @@ var Options = {
 	},
 	mq: {
 		// disabled: false,
-		url: 'amqp://psap2:psap2@172.18.35.42/psap2',
+		// url: 'amqp://psap2:psap2@172.18.35.42/psap2',
+		url: 'amqp://psap2:psap2@psap2mq.protezionecivile.fvg.it/psap2',
 		exchange: {
 			name: 'cards',
 			type: 'fanout',
