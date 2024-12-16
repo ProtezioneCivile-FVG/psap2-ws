@@ -12,12 +12,29 @@ const EVENT_INVALID_XML_CARD = "invalid-xml-card";
 const EVENT_CARD_RECEIVED = "card-received";
 const EVENT_ERROR = 'error';
 
+
+const NESTED_CDATA_FIELDS = [
+	'Caller/Location/Automatic/CEDInterforze/Localization',
+];
+
+const getElement = (obj, path) => {
+	const paths = path.split('/');
+	let el = obj;
+	for( let i=0; i<paths.length && el; i++ ) {
+		el = el[paths[i]];
+	}
+	return el;
+}
+
+const GestContattoResult = (r) => ({ GestContattoResult: r });
+
 // http://<ip>:<port>/Nue_Services/EntiService
 const PSAP2_Service = {
 	on: (name,callback) => _events.on(name,callback),
+	get default_operation() { return this.EntiService.BasicHttpBinding_IEntiService.GestContatto },
 
-	Nue_Services: {
-		EntiServicePort: {
+	EntiService: {
+		BasicHttpBinding_IEntiService: {
 
 			GestContatto: function(args) {
 
@@ -35,47 +52,42 @@ const PSAP2_Service = {
 				return new Promise((resolve, reject) => {
 
 					try {
-						_events.emit( EVENT_RAW_CARD_RECEIVED, args );
-
-						const parameters = args.parameters || args;
-						const data = parameters.SchedaContatto || parameters;
-
-						console.log("Raw soap: (%s) %s\n\n", typeof(data), JSON.stringify(data));
-
-						let xmlData = null;
-						if(Array.isArray(data)) {
-							let pp = {};
-							for( let i=0; i<data.length; i++ ) {
-								let it = data[i].item || data[i];
-								if( it.key ) {
-									pp[it.key] = it.value;
-								}
-							}
-							xmlData = pp.SchedaContatto;
+						let parameters = args.parameters || args;
+						// Beta80 args compatibility
+						if( parameters.item && Array.isArray(parameters.item)) {
+							parameters = parameters.item.reduce( (prev,curr) => {
+								prev[curr.key] = curr.value;
+								return prev;
+							}, {});
 						}
+
+						const xmlCard = parameters.SchedaContatto || parameters;
+						delete parameters.SchedaContatto;
+
+						console.log("Raw card: (%s) %s\n\n", typeof(xmlCard), JSON.stringify(xmlCard));
+						_events.emit( EVENT_RAW_CARD_RECEIVED, xmlCard );
 
 						// Decode card xml to json
 						let card = null;
 						try {
-							card = xml_parser.parse(xmlData); // ,options);
+							card = xml_parser.parse(xmlCard);
 							if( card.ContactCard ) {
 								card = card.ContactCard;
 							}
 						}
 						catch( err ) {
 							console.error( 'Invalid XML for contact card: %s', err );
-							_events.emit( EVENT_INVALID_XML_CARD, xmlData );
-							resolve(false);
+							_events.emit( EVENT_INVALID_XML_CARD, xmlCard );
+							resolve(GestContattoResult(false));
 						}					
 
-						// Decode (if exists) Caller/Location/Automatic/CEDInterforze/Localization/Value
-						let path = 'Caller/Location/Automatic/CEDInterforze/Localization'.split('/');
-						let el = card;
-						for( let i=0; i<path.length && el; i++ ) {
-							el = el[path[i]];
-						}
-						if( el && XMLValidator.validate(el['Value']) === true) {
-							el['Value'] = xml_parser.parse(el['Value']);
+						// For each nested CDATA, if exists, parse it and replace element
+						for( let i=0; i<NESTED_CDATA_FIELDS.length; i++ ) {
+							let el = getElement(card, NESTED_CDATA_FIELDS[i]);
+
+							if( el && XMLValidator.validate(el['Value']) === true) {
+								el['Value'] = xml_parser.parse(el['Value']);
+							}
 						}
 
 						let record = {
@@ -83,11 +95,16 @@ const PSAP2_Service = {
 							cid: card.CID.toString(),
 							created_dt: card.CreateDate,
 							json: JSON.stringify(card),
-							xml: args.SchedaContatto
+							xml: xmlCard,
+							parameters: JSON.stringify(parameters)
 						};
 
-						const res = _events.emit( EVENT_CARD_RECEIVED, record );
-						resolve( res );
+						const r = _events.emit( EVENT_CARD_RECEIVED, record );
+						if( r.then ) {
+							r.then( (rr) => resolve(GestContattoResult(rr)) );
+						}
+						else
+							resolve( GestContattoResult(r) );
 					}
 					catch( err ) {
 						console.error( "GestContatto: %s", err );
