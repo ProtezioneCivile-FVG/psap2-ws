@@ -1,0 +1,101 @@
+{
+  "ID": 240590486,
+  "CreateDate": "2024-12-16T17:38:26",
+  "CallType": "PhoneCall",
+  "Operator": "GOI169908",
+  "Reference": "PIA161438",
+  "Classification": "Soccorso tecnico urgente",
+  "ClassificationDetail": "Incendio Boschivo",
+  "ClassificationAttribute": "",
+  "HighPriority": "FALSE",
+  "InvolvedNumber": 0,
+  "ContactCardLink": 0,
+  "CompetenceType": "SOR",
+  "MainLocation": {
+    "Point": {
+      "Latitude": 46.29078,
+      "Longitude": 13.298813
+    }
+  },
+  "CID": "86244393351368308",
+  "TimestampSent": "2024-12-16T17:39:06",
+  "Caller": {
+    "Number": 3351368308,
+    "Ope_ID": 244,
+    "Surname": "FOSCHIAN (Protezione Civile FVG)",
+    "Name": "MARCO",
+    "Location": {
+      "Manual": {
+        "PointOfInterest": "MONTE CONTESA",
+        "Toponymy": "",
+        "Address": "",
+        "CivicNumberAdditional": "",
+        "City": "TAIPANA",
+        "District": "",
+        "Province": "UD",
+        "CrossRoads": {
+          "Toponymy": "",
+          "Address": ""
+        },
+        "AdditionalInfo": "SIMULAZIONE"
+      },
+      "Automatic": {
+        "CEDInterforze": {
+          "Localization": {
+            "Value": {
+              "?xml": "",
+              "svc_result": {
+                "eme_lia": {
+                  "eme_pos": {
+                    "msid": 3351368308,
+                    "pd": {
+                      "time": 20241216173816,
+                      "shape": {
+                        "CircularArea": {
+                          "coord": {
+                            "X": "45 54 50N",
+                            "Y": "013 20 12E"
+                          },
+                          "radius": 1410
+                        }
+                      },
+                      "lev_conf": 90
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Called": {
+    "Number": 112
+  },
+  "Companies": {
+    "Competence": {
+      "Primary": {
+        "Company": {
+          "Code": "PCFV01",
+          "Enabled": "TRUE",
+          "Description": "SOR"
+        }
+      },
+      "PublicSecurity": {
+        "Company": {
+          "Code": 25121,
+          "Enabled": "TRUE",
+          "Description": "CC Cividale del Friuli"
+        }
+      }
+    },
+    "ForwardedTo": {
+      "Company": {
+        "Code": "VVFUDINE",
+        "Enabled": "TRUE",
+        "Description": "VVF Udine"
+      }
+    }
+  }
+}
