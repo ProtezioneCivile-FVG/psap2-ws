@@ -1,6 +1,5 @@
-// const xml_parser = require('fast-xml-parser');
 const { XMLParser, XMLValidator } = require('fast-xml-parser');
-const EventEmitter = require('../lib/EventEmitter.js')
+const EventEmitter = require('../lib/EventEmitter.js').default
 
 const _events = new EventEmitter();
 
@@ -53,7 +52,7 @@ const PSAP2_Service = {
 
 					try {
 						let parameters = args.parameters || args;
-						// Beta80 args compatibility
+						// Beta80 args compatibility (in some cases)
 						if( parameters.item && Array.isArray(parameters.item)) {
 							parameters = parameters.item.reduce( (prev,curr) => {
 								prev[curr.key] = curr.value;
@@ -136,5 +135,4 @@ const PSAP2_Service = {
 	}
 };
 
-// exports.PSAP2_Service = PSAP2_Service;
 module.exports = PSAP2_Service;

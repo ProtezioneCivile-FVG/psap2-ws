@@ -2,7 +2,7 @@ const sqlite3 = require('sqlite3').verbose();
 
 
 //------------ UTILS
-const moment = require('moment');
+const moment = require('moment'); // TODO: change datetime library to another one
 function dateTimeFormat( dt ) {
     return moment(dt).format('YYYY-MM-DD HH:mm:ss.SSS');
 }
@@ -225,7 +225,7 @@ Store.prototype.endBatch = async function() {
 };
 
 Store.prototype.getCardById = async function( id ) {
-    // Questa non può funzionare bene perché, nell'arco della stessa giornata vengono riciclati gli ID !!!!
+	// WARNING: the same IDs may be reused in the same day...
     let sql = "SELECT * FROM cards WHERE id = ?";
 
     return this.sql_get( sql, [id] )
@@ -233,14 +233,14 @@ Store.prototype.getCardById = async function( id ) {
 };
 
 Store.prototype.getCardByRowId = async function( id ) {
-	// Questa non può funzionare bene perché, nell'arco della stessa giornata vengono riciclati gli ID !!!!
+	// WARNING: the same IDs may be reused in the same day...
 	let sql = "SELECT * FROM cards WHERE id = ?";
 
 	return this.sql_get( sql, [id] );
 };
 
 Store.prototype.getCardByCID = async function( cid ) {
-	// Questa non può funzionare bene perché, nell'arco della stessa giornata vengono riciclati gli ID !!!!
+	// WARNING: the same IDs may be reused in the same day...
 	let sql = "SELECT * FROM cards WHERE cid = ?";
 
 	return this.sql_get( sql, [cid] );

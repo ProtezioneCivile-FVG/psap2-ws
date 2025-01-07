@@ -19,10 +19,6 @@
 
 
 	<wsdl:types>
-		<!-- <xs:schema targetNamespace="http://entiservice.ws.nue.gov.it/Imports">
-			<xs:import schemaLocation="http://172.22.40.3:8001/Nue_Services/EntiService?xsd=1" namespace="http://entiservice.ws.nue.gov.it/"/>
-		</xs:schema> -->
-
 		<xs:schema elementFormDefault="qualified" targetNamespace="http://entiservice.ws.nue.gov.it/">
 			<xs:element name="GestContatto">
 				<xs:complexType>

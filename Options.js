@@ -1,42 +1,32 @@
 var Options = {
 	web: {
 		port: 8001,
-		trace: true
+		trace: false // put to true for SOAP logging
 	},
 	soap: {
-		wsdl: __dirname + '/soap/psap2.wsdl',
-		//service: './soap/services.js'
+		wsdl: __dirname + '/soap/psap2.wsdl'
 	},
 	store: {
+		// persistent store for contact cards
 		type: 'sqlite',
 		params: {
-			//filename: __dirname + '/contactcards.sqlite3'
-			filename: '/srv/data/psap2/contactcards.sqlite3'
-			/*
-			user: '',
-			password: '',
-			server: 'xxx.protezionecivile.fvg.it', // You can use 'localhost\\instance' to connect to named instance
-			database: 'yyy',
-			stream: true,
-			options: {
-				//encrypt: true // Use this if you're on Windows Azure
-			}
-			*/
+			filename: __dirname + '/contactcards.sqlite3'
 		}
 	},
 	mq: {
-		// disabled: false,
-		// url: 'amqp://psap2:psap2@172.18.35.42/psap2',
-		url: 'amqp://psap2:psap2@psap2mq.protezionecivile.fvg.it/psap2',
+		disabled: false,
+		// Do not put credentials under version control !
+		url: 'amqp://user:password@psap2mq.protezionecivile.fvg.it/psap2',
+		// Fanout exchange for multiple clients
 		exchange: {
 			name: 'cards',
 			type: 'fanout',
 			options: { durable: true }
 		},
+		// For testing purposes
 		queue: {
 			name: 'sor'
-		},
-		disabled: false
+		}
 	}
 };
 

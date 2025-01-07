@@ -1,5 +1,4 @@
 const soap = require('soap');
-// const soap = require('./soap/soap-server.js');
 const express = require('express');
 const fs = require('fs');
 
@@ -61,16 +60,25 @@ async function run() {
 			console.log( 'Card received.' );
 			let ok = await _data_store.addCard( card_record );
 			console.log( 'Card record stored. Res: %s', ok );
-
-			if( _mq != null ) {
-				const res = await _mq.publish( card_record.json );
-			}
-			return true;
 		}
 		catch( err ) {
 			console.error( 'Error in saving card record:\n%s', err );
 			return false;
 		}
+
+		if( _mq != null ) {
+			try {
+				console.log( 'Publishing card to message queue.' );
+				const res = await _mq.publish( card_record.json );
+				console.log( 'Card published. Res: %s', res );
+			}
+			catch( err ) {
+				console.error( 'Error in publishing card:\n%s', err );
+				return false;
+			}
+		}
+
+		return true;
 	})
 	.on( 'error', (err) => {
 		console.error( 'Error in soap service:\n%s', err );
