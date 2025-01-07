@@ -1,4 +1,3 @@
-// const xml_parser = require('fast-xml-parser');
 const { XMLParser, XMLValidator } = require('fast-xml-parser');
 const EventEmitter = require('../lib/EventEmitter.js')
 

@@ -1,3 +1,12 @@
+/*
+	Send a json contact card directly to the message queue.
+	Used to test the MQ
+
+	Syntax: node mqSend.js contact_card_id
+
+	The file read is this-folder/{contact_card_id}.json
+*/
+
 const { Producer } = require('../mq/Producer.js');
 const opts = require('../Options.js').Options;
 const fs = require('node:fs');

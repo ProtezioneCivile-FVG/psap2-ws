@@ -1,3 +1,12 @@
+/*
+	Listen on MQ and save to files the json received
+	Used to test the MQ
+
+	The file is saved as this-folder/{contact_card_id}.json
+
+	Syntax: node mqListener.js
+*/
+
 const { Consumer } = require('../mq/Consumer.js');
 const opts = require('../Options.js').Options;
 const fs = require('node:fs');

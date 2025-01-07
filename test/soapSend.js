@@ -1,3 +1,11 @@
+/*
+	Send an XML contact card via SOAP.
+	Simulates the PSAP1 message.
+
+	Syntax: node soapSend.js xml-file-of-contact-card [server-address]
+	The default server address is localhost
+*/
+
 const soap = require('soap');
 const util = require('util');
 
