@@ -1,6 +1,5 @@
 const { XMLParser, XMLValidator } = require('fast-xml-parser');
-const EventEmitter = require('../lib/EventEmitter.js').default
-
+const EventEmitter = require('../lib/EventEmitter.js')
 const _events = new EventEmitter();
 
 const xml_parser = new XMLParser();
