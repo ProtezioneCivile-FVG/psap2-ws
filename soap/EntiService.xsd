@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.2.0-1 (tags/2.2.0u1-7139; 2012-06-02T10:55:19+0000) JAXWS-RI/2.2.6-2 JAXWS/2.2 svn-revision#unknown. -->
+<xs:schema targetNamespace="http://entiservice.ws.nue.gov.it/" elementFormDefault="qualified" 
+	xmlns:tns="http://entiservice.ws.nue.gov.it/" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="GestContatto">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="EnteMittente" type="xs:string" maxOccurs="1" minOccurs="0"/>
+				<xs:element name="EnteDestinatario" type="xs:string" maxOccurs="1" minOccurs="0"/>
+				<xs:element name="SedeMittente" type="xs:string" maxOccurs="1" minOccurs="0"/>
+				<xs:element name="SedeDestinataria" type="xs:string" maxOccurs="1" minOccurs="0"/>
+				<xs:element name="ProvinciaMittente" type="xs:string" maxOccurs="1" minOccurs="0"/>
+				<xs:element name="ProvinciaDestinatario" type="xs:string" maxOccurs="1" minOccurs="0"/>
+				<xs:element name="SchedaContatto" type="xs:string" maxOccurs="1" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GestContattoResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="GestContattoResult" type="xs:string" maxOccurs="1" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
