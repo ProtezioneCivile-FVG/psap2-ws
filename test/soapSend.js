@@ -37,17 +37,20 @@ soap.createClient(url, function(err, client) {
 		 console.error( 'Error: %s', err );
 		 return;
 	}
-	// console.log( "client.describe: %s", util.inspect(client.describe()) );
-	// let parms = {
-	// 	// SchedaContatto: cdataOf(xml)
-	// 	// SchedaContatto: escapeCDATA(xml)
-	// 	SchedaContatto: xml
-	// };
-	let parms = { parameters : [
-		{item: {key: "SchedaContatto", value: xml }},
-		{item: {key: "EnteMittente", value: "NUE" }},
-		{item: {key: "ProvinciaMittente", value: "UD" }},
-	]};
+	console.log( "client.describe: %s", util.inspect(client.describe()) );
+	let parms = {
+		// SchedaContatto: cdataOf(xml)
+		// SchedaContatto: escapeCDATA(xml)
+		SchedaContatto: xml,
+		EnteMittente: "NUE",
+		ProvinciaMittente: "UD"
+	};
+	// Beta80 Wrong Data Invocation Test
+	// let parms = { parameters : [
+	// 	{item: {key: "SchedaContatto", value: xml }},
+	// 	{item: {key: "EnteMittente", value: "NUE" }},
+	// 	{item: {key: "ProvinciaMittente", value: "UD" }},
+	// ]};
 
 	// console.log(parms.SchedaContatto);
 
