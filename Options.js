@@ -3,7 +3,7 @@
 var Options = {
 	web: {
 		port: process.env.WS_PORT ?? 8001,
-		trace: true // put to true for SOAP logging
+		trace: false // put to true for SOAP logging
 	},
 	soap: {
 		host: process.env.SOAP_HOST ?? 'localhost',

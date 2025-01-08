@@ -1,18 +1,18 @@
-# Installazione service node.js
+# Installazione ed avvio dell'applicativo come servizio di Linux
 
-- ```npm i```
-- provare a lanciare il servizio con node server.js
-- copy or link service/psap2ws.service in /etc/systemd/system
-- copy 90-psap2ws.conf in /etc/rsyslog.d
-- sudo systemctl daemon-reload
-- sudo service psap2ws start
-- sudo systemctl enable psap2ws <-- altrimenti il servizio non parte al boot !!!
+- copiare il file service/psap2ws.service in /etc/systemd/system
+- avviare il servizio
+```
+sudo systemctl daemon-reload
+sudo service psap2ws start
+sudo systemctl enable psap2ws
+```
 
-# Log
+## Visualizzazione dei log
+
+Per visualizzare i log del servizio utilizzare `journalctl`, per esempio:
 
 ```sudo journalctl -f -u psap2ws```
-oppure
-```tail -f /var/log/psap2ws.log```
 
 
 
