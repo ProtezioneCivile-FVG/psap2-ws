@@ -1,0 +1,66 @@
+publiccodeYmlVersion: "0.4"
+name: psap2-ws
+url: https://github.com/ProtezioneCivile-FVG/psap2-ws
+platforms:
+  - web
+categories:
+  - contact-management
+usedBy:
+  - Protezione Civile Regione Autonoma Friuli Venezia Giulia
+developmentStatus: stable
+softwareType: standalone/backend
+description:
+  it:
+    shortDescription: Ricezione Schede Contatto XML Inviate da PSAP1 NUE-112
+    longDescription: >-
+      Web service SOAP per ricezione schede contatto da PSAP1.
+
+
+
+      Nel contesto del numero unico delle emergenze (*NUE-112*) il centro di
+      risposta di primo livello (*PSAP1*) intervista brevemente il cittadino che
+      ha chiamato il numero 112 per stabilire il tipo di emergenza ed il centro
+      di gestione verso cui inoltrare la chiamata (*PSAP2*).
+
+
+      I dati raccolti durante l'intervista  - corredati da ulteriori
+      informazioni aggiuntive - vengono inviati al gestore di secondo livello
+      (*PSAP2*) in modo da circostanziare meglio la chiamata senza replicare le
+      domande già poste al chiamante.
+
+
+      L'invio dei dati avviene su una rete informatica riservata con teconlogia
+      SOAP.
+
+
+      Questo applicativo implementa:
+
+      - la ricezione della scheda contatto
+
+      - la decodifica da formato XML in formato JSON
+
+      - il salvataggio in una base dati (attualmente *sqlite*)
+
+      - l'invio (opzionale) ad una coda di messaggi (tecnologia
+      [AMQP](https://www.amqp.org/)) per il processamento da parte
+      dell'applicativo di gestione in dotazione al PSAP2
+      	- questo permette di disaccoppiare l'applicativo di gestione dal canale di ricezione della scheda contatto utilizzando tecnologie standard e protocolli aperti ampiamente utilizzati
+
+      Questo software è realizzato in [node.js](https://nodejs.org) in modo da
+      essere cross-platform.
+    features:
+      - Ricezione Schede Contatto Inviate da PSAP1 NUE-112
+      - Parsing Schede Contatto
+      - Dispatch Schede Contatto su tecnologia AMQP
+      - Salvataggio Schede Contatto su Database
+      - Conversione Schede Contatto da XML a JSON
+    screenshots:
+      - docs/PSAP2-scema.png
+legal:
+  license: MIT
+maintenance:
+  type: internal
+localisation:
+  localisationReady: false
+  availableLanguages:
+    - it-IT
