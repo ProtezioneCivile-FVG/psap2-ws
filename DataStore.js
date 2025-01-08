@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 /*
 	Save the card in a persistent store
 	The implementations depends on the type of engine choosed in Options.js

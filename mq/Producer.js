@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 const amqplib = require('amqplib');
 
 const default_exchange = {

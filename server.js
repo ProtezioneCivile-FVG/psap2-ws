@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 const soap = require('soap');
 const express = require('express');
 const fs = require('fs');

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 var Options = {
 	web: {
 		port: process.env.WS_PORT ?? 8001,

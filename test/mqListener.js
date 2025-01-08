@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 /*
 	Listen on MQ and print the received json on stdout
 	Used to test the MQ

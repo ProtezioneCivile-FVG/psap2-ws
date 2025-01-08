@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 const { XMLParser, XMLValidator } = require('fast-xml-parser');
 const EventEmitter = require('../lib/EventEmitter.js')
 

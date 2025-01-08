@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 /*
 	Send a json contact card directly to the message queue.
 	Used to test the MQ

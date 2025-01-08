@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 /*
 	Send an XML contact card via SOAP.
 	Simulates the PSAP1 message.
