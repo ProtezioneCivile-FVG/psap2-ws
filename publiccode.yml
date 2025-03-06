@@ -60,6 +60,11 @@ legal:
   license: MIT
 maintenance:
   type: internal
+  contacts:
+    - name: Marco Foschian
+      email: marco.foschian@protezionecivile.fvg.it
+      phone: ""
+      affiliation: ""
 localisation:
   localisationReady: false
   availableLanguages:
