@@ -9,6 +9,17 @@ usedBy:
   - Protezione Civile Regione Autonoma Friuli Venezia Giulia
 developmentStatus: stable
 softwareType: standalone/backend
+#releaseDate: 2025-01-30
+#softwareVersion: 1.0.0
+it:
+  countryExtensionVersion: "1.0"
+#  piattaforme:
+#    anpr: false
+#    cie: false
+#    pagopa: false
+#    spid: false
+  riuso:
+    codiceIPA: r_friuve
 description:
   it:
     shortDescription: Ricezione Schede Contatto XML Inviate da PSAP1 NUE-112
