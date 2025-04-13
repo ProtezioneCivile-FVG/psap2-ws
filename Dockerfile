@@ -1,4 +1,4 @@
-FROM node:22-alpine
+FROM node:22
 
 ARG WS_PORT=8001
 # SOAP_HOST=172.22.35.35

@@ -26,3 +26,5 @@ services:
       - mq
     ports:
       - "8001:8001"
+    restart: unless-stopped
+
