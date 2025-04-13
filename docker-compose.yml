@@ -1,0 +1,28 @@
+version: '3.3'
+services:
+  mq:
+    image: rabbitmq:4.0
+    hostname: mq
+    environment:
+        RABBITMQ_DEFAULT_VHOST: psap2
+        RABBITMQ_DEFAULT_USER: user
+        RABBITMQ_DEFAULT_PASS: password
+    # build:
+    #   context: .
+    #   dockerfile: ./Dockerfile.mq
+    #   args:
+    #     - USER=user
+    #     - PASS=password
+    ports:
+      - "5672:5672"
+  ws:
+    build:
+      context: .
+      args:
+        - WS_PORT=8001
+        - USER=user
+        - PASS=password
+    depends_on:
+      - mq
+    ports:
+      - "8001:8001"
