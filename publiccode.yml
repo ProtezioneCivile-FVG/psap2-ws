@@ -59,7 +59,7 @@ description:
       - Salvataggio Schede Contatto su Database
       - Conversione Schede Contatto da XML a JSON
     screenshots:
-      - docs/PSAP2-scema.png
+      - docs/PSAP2-schema.png
 legal:
   license: MIT
 maintenance:
