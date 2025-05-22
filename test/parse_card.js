@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 /*
 	Test the parsing of XML contact cards
 

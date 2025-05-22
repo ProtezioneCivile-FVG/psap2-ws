@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 /*
 	Send a json contact card directly to the message queue.
 	Used to test the MQ
@@ -6,6 +8,8 @@
 
 	The file read is this-folder/{contact_card_id}.json
 */
+
+require('dotenv').config({path: __dirname + '/../.env'});
 
 const { Producer } = require('../mq/Producer.js');
 const opts = require('../Options.js').Options;
@@ -38,7 +42,7 @@ const load_message = (id, msg, title) => {
 async function run() {
 	try {
 		debugger
-		console.log( 'Creating mq Producer...');
+		console.log( 'Creating mq Producer for %s/%s ...', process.env.MQ_HOST, process.env.MQ_VHOST ?? '');
 		let mq = new Producer(opts.mq);
 		
 		const fileName = opt;

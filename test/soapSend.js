@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 /*
 	Send an XML contact card via SOAP.
 	Simulates the PSAP1 message.
@@ -6,10 +8,12 @@
 	The default server address is localhost
 */
 
+require('dotenv').config({path: __dirname + '/../.env'});
+
 const soap = require('soap');
 const util = require('util');
 
-let url = 'http://localhost:8001/Nue_Services/EntiService?wsdl';
+let url = `http://localhost:${process.env.WS_PORT ?? 8001}/Nue_Services/EntiService?wsdl`;
 
 
 let args = process.argv.splice(2);
@@ -53,7 +57,7 @@ soap.createClient(url, function(err, client) {
 		EnteMittente: "NUE",
 		ProvinciaMittente: "UD"
 	};
-	// Beta80 Wrong Data Invocation Test
+	// Wrong Data Invocation Test
 	// let parms = { parameters : [
 	// 	{item: {key: "SchedaContatto", value: xml }},
 	// 	{item: {key: "EnteMittente", value: "NUE" }},

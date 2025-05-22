@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 const { XMLParser, XMLValidator } = require('fast-xml-parser');
 const EventEmitter = require('../lib/EventEmitter.js')
 
@@ -52,10 +54,12 @@ const PSAP2_Service = {
 
 					try {
 						let parameters = args.parameters || args;
-						// Beta80 args compatibility
-						if( parameters.item && Array.isArray(parameters.item)) {
-							parameters = parameters.item.reduce( (prev,curr) => {
-								prev[curr.key] = curr.value;
+						// Beta80 args compatibility (in some cases)
+						if( Array.isArray(parameters) && parameters[0]?.item) {
+							parameters = parameters.reduce( (prev,curr) => {
+								// curr is { item: { key, value }}
+								if( curr.item )
+									prev[curr.item.key] = curr.item.value;
 								return prev;
 							}, {});
 						}
@@ -135,5 +139,4 @@ const PSAP2_Service = {
 	}
 };
 
-// exports.PSAP2_Service = PSAP2_Service;
 module.exports = PSAP2_Service;

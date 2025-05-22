@@ -1,16 +1,18 @@
 {
-  "name": "psap2.websrv",
+  "name": "psap2-ws",
   "version": "1.0.0",
-  "description": "Web Server per schede contatto",
+  "description": "Web Server per schede contatto da PSAP1",
   "main": "server.js",
   "scripts": {
     "dev": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check": "publiccode-parser publiccode.yml"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Marco Foschian",
+  "license": "MIT",
   "dependencies": {
     "amqplib": "^0.10.3",
+    "dotenv": "^16.4.7",
     "express": "^4.17.1",
     "fast-xml-parser": "^4.2.2",
     "moment": "^2.25.3",
