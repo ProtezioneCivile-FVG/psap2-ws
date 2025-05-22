@@ -128,3 +128,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+test/data/_json
+test/data/_xml
+test/data/*.sqlite3
+*.sqlite3

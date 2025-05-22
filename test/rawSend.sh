@@ -4,11 +4,14 @@ clear
 xmlfile=$1
 echo File sent is $xmlfile
 
-url=http://172.22.40.3:8001/Nue_Services/EntiService
+url=http://127.0.0.1:8001/Nue_Services/EntiService
+echo Server is $url
 
-h1="SOAPAction: \"http://entiservice.ws.nue.gov.it/Nue_Services/EntiService/GestContatto\""
-echo $h1
+# h1="http://entiservice.ws.nue.gov.it/Nue_Services/EntiService/GestContatto"
+# echo header is
+# echo $h1
 
-curl --header $h1 -X POST -d @$xmlfile $url
+#curl --header "SOAPAction: $h1" -X POST -d @$xmlfile $url
+curl -X POST -d @$xmlfile $url
 
 echo Done
