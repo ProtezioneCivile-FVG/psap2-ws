@@ -1,22 +1,25 @@
+// SPDX-License-Identifier: MIT
+
 var Options = {
 	web: {
-		port: 8001,
+		port: process.env.WS_PORT ?? 8001,
 		trace: false // put to true for SOAP logging
 	},
 	soap: {
+		host: process.env.SOAP_HOST ?? 'localhost',
+		port: process.env.WS_PORT ?? 8001,
 		wsdl: __dirname + '/soap/psap2.wsdl'
 	},
 	store: {
 		// persistent store for contact cards
 		type: 'sqlite',
 		params: {
-			filename: __dirname + '/contactcards.sqlite3'
+			filename: (process.env.SQLITE_STORAGE ?? __dirname) + '/contactcards.sqlite3'
 		}
 	},
 	mq: {
 		disabled: false,
-		// Do not put credentials under version control !
-		url: 'amqp://user:password@psap2mq.protezionecivile.fvg.it/psap2',
+		url: `amqp://${process.env.MQ_CREDENTIALS}@${process.env.MQ_HOST}/${process.env.MQ_VHOST ?? ''}`,
 		// Fanout exchange for multiple clients
 		exchange: {
 			name: 'cards',

@@ -1,14 +1,19 @@
+// SPDX-License-Identifier: MIT
+
 const soap = require('soap');
 const express = require('express');
 const fs = require('fs');
+require('dotenv').config({path: __dirname + '/.env'});
 
 const Options = require('./Options').Options;
 const DataStore = require('./DataStore.js');
 const soap_service = require('./soap/PSAP2_Service.js');
 const { Producer } = require('./mq/Producer.js');
 
-const web_opts = Options.web || { port: 8001 };
-const soap_opts = Options.soap || {};
+const default_port = 8001;
+
+const web_opts = { port: default_port, trace: false, ... (Options.web ?? {}) };
+const soap_opts = { host: 'localhost', port: default_port, ...(Options.soap ?? {}) };
 const store_opts = Options.store || {};
 const mq_opts = Options.mq || {};
 
@@ -24,6 +29,11 @@ async function run() {
 	let wsdl = '';
 	try {
 		wsdl = fs.readFileSync(soap_opts.wsdl, 'utf8');
+		const wsdl_vars = [
+			{ key: 'SOAP_HOST', value: soap_opts.host },
+			{ key: 'SOAP_PORT', value: web_opts.port },
+		]
+		wsdl_vars.forEach( item => wsdl = wsdl.replaceAll(`{{${item.key}}}`, item.value ) );
 		console.log('\tdone.');
 	}
 	catch( err ) {
@@ -48,7 +58,7 @@ async function run() {
 	let _mq = null;
 	if( mq_opts.disabled !== true ) {
 		_mq = new Producer(mq_opts);
-		console.log('Starting Message queue channel');
+		console.log('Starting Message queue channel on %s/%s', process.env.MQ_HOST, process.env.MQ_VHOST ?? '');
 		await _mq.open();
 		console.log('\tdone.');
 	}

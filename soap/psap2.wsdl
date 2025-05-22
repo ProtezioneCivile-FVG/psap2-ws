@@ -19,6 +19,10 @@
 
 
 	<wsdl:types>
+		<!-- <xs:schema targetNamespace="http://entiservice.ws.nue.gov.it/Imports">
+			<xs:import schemaLocation="http://172.22.40.3:8001/Nue_Services/EntiService?xsd=1" namespace="http://entiservice.ws.nue.gov.it/"/>
+		</xs:schema> -->
+
 		<xs:schema elementFormDefault="qualified" targetNamespace="http://entiservice.ws.nue.gov.it/">
 			<xs:element name="GestContatto">
 				<xs:complexType>
@@ -72,8 +76,7 @@
 	</wsdl:binding>
 	<wsdl:service name="EntiService">
 		<wsdl:port name="BasicHttpBinding_IEntiService" binding="tns:BasicHttpBinding_IEntiService">
-			<soap:address location="http://172.22.40.3:8001/Nue_Services/EntiService"/>
-			<!-- <soap:address location="http://localhost:8001/Nue_Services/EntiService"/> -->
+			<soap:address location="http://{{SOAP_HOST}}:{{SOAP_PORT}}/Nue_Services/EntiService"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

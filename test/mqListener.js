@@ -1,3 +1,16 @@
+// SPDX-License-Identifier: MIT
+
+/*
+	Listen on MQ and print the received json on stdout
+	Used to test the MQ
+
+	Syntax: node mqListener.js [-s]
+
+	With the -s options the json is saved to file this-folder/{contact_card_id}.json
+*/
+
+require('dotenv').config({path: __dirname + '/../.env'});
+
 const { Consumer } = require('../mq/Consumer.js');
 const opts = require('../Options.js').Options;
 const fs = require('node:fs');
@@ -29,7 +42,7 @@ if( opt && opt.toLowerCase() == '-s' ) {
 }
 
 
-console.log( 'Creating mq listener...');
+console.log( 'Creating mq listener for %s/%s ...', process.env.MQ_HOST, process.env.MQ_VHOST ?? '');
 let mq = new Consumer(opts.mq);
 
 async function run() {

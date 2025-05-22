@@ -1,9 +1,12 @@
-// const xml_parser = require('fast-xml-parser');
+// SPDX-License-Identifier: MIT
+
+/*
+	Test the parsing of XML contact cards
+
+	Syntax: node parse_card.js xml-file-path
+*/
+
 const { XMLParser, XMLValidator } = require('fast-xml-parser');
-
-
-
-
 
 let args = process.argv.splice(2);
 let xml_file = args[0];
