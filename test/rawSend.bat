@@ -8,10 +8,10 @@ set url=http://localhost:8001/Nue_Services/EntiService
 @REM set url=http://localhost:8001/Nue_Services/EntiService/GestContatto
 
 
-set h1="SOAPAction: ""http://entiservice.ws.nue.gov.it/Nue_Services/EntiService/GestContatto"""
+@REM set h1="SOAPAction: ""http://entiservice.ws.nue.gov.it/Nue_Services/EntiService/GestContatto"""
+@REM echo %h1%
 
-echo %h1%
-
-curl --header %h1% -X POST -d @%xmlfile% %url%
+@REM curl --header %h1% -X POST -d @%xmlfile% %url%
+curl -X POST -d @%xmlfile% %url%
 
 echo Done
